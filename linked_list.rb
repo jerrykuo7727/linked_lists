@@ -37,8 +37,18 @@ class LinkedList
     end
     count
   end
+
+  def head
+    @head.value
+  end
+
+  def tail
+    @tail.value
+  end
 end
 
 ll = LinkedList.new()
-
-p ll.size
+ll.append('a')
+ll.append(2)
+ll.append(3)
+ll.append(456)
