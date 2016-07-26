@@ -1,1 +1,2 @@
-# linked_lists
+# Linked Lists
+Implement linked lists with Ruby.
