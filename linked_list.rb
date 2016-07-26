@@ -47,11 +47,37 @@ class LinkedList
   end
 
   def at(index)
+    unless index < size
+      puts "Error: Index overflow!"
+      return nil
+    end
+
     curr = @head
     1.upto(index) do
       curr = curr.next_node
     end
     curr
+  end
+
+  def pop
+    if @head == nil
+      puts "Error: Linked list is empty!"
+      return nil
+    elsif @head == @tail
+      pop_node = @head
+      @head = nil
+      @tail = nil
+      return pop_node
+    else
+      prev = @head
+      until prev.next_node == @tail
+        prev = prev.next_node
+      end
+      pop_node = @tail
+      prev.next_node = nil
+      @tail = prev
+      return pop_node
+    end
   end
 end
 
@@ -60,4 +86,5 @@ ll.append('a')
 ll.append(2)
 ll.append(3)
 ll.append(456)
-p ll.at(4)
+p ll.pop.value
+p ll.tail.value
