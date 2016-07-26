@@ -1,2 +1,2 @@
-def LinkedList
+class LinkedList
 end
