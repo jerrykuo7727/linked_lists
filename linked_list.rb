@@ -100,6 +100,17 @@ class LinkedList
     puts "Error: Value not found!"
     return nil
   end
+
+  def to_s
+    string = ""
+    curr = @head
+    until curr == nil
+      string << "#{curr.value.to_s} -> "
+      curr = curr.next_node
+    end
+    string << "nil"
+    string
+  end
 end
 
 ll = LinkedList.new()
@@ -107,4 +118,5 @@ ll.append('a')
 ll.append(2)
 ll.append(3)
 ll.append(456)
-p ll.find(5)
+ll.prepend('b')
+puts ll.to_s
