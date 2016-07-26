@@ -79,6 +79,15 @@ class LinkedList
       return pop_node
     end
   end
+
+  def contains?(val)
+    curr = @head
+    until curr == nil do
+      return true if curr.value == val
+      curr = curr.next_node
+    end
+    return false
+  end
 end
 
 ll = LinkedList.new()
@@ -86,5 +95,4 @@ ll.append('a')
 ll.append(2)
 ll.append(3)
 ll.append(456)
-p ll.pop.value
-p ll.tail.value
+p ll.contains?('s')
