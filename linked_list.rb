@@ -27,8 +27,18 @@ class LinkedList
       @head = new_node
     end
   end
+
+  def size
+    curr = @head
+    count = 0
+    until curr == nil do
+      curr = curr.next_node
+      count += 1
+    end
+    count
+  end
 end
 
 ll = LinkedList.new()
-ll.append(2)
-ll.prepend(3)
+
+p ll.size
