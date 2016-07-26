@@ -118,23 +118,18 @@ class LinkedList
     curr = prev.next_node
     prev.next_node = new_node
     new_node.next_node = curr
+
+    @head = new_node if index == 0
+    @tail = new_node if index == size - 1
   end
 
   def remove_at(index)
-    prev = at(index - 1)
-    prev.next_node = prev.next_node.next_node
+    if index == 0
+      @head = @head.next_node
+    else
+      prev = at(index - 1)
+      prev.next_node = prev.next_node.next_node
+      @tail = at(size - 1) if index == size
+    end
   end
 end
-
-ll = LinkedList.new()
-ll.append('a')
-ll.append(2)
-ll.append(3)
-ll.append(456)
-puts ll.to_s
-ll.insert_at(2, 4982)
-puts ll.to_s
-ll.remove_at(4)
-puts ll.to_s
-p ll.head.value
-p ll.tail.value
