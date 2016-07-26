@@ -119,6 +119,11 @@ class LinkedList
     prev.next_node = new_node
     new_node.next_node = curr
   end
+
+  def remove_at(index)
+    prev = at(index - 1)
+    prev.next_node = prev.next_node.next_node
+  end
 end
 
 ll = LinkedList.new()
@@ -129,3 +134,7 @@ ll.append(456)
 puts ll.to_s
 ll.insert_at(2, 4982)
 puts ll.to_s
+ll.remove_at(4)
+puts ll.to_s
+p ll.head.value
+p ll.tail.value
