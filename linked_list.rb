@@ -88,6 +88,18 @@ class LinkedList
     end
     return false
   end
+
+  def find(val)
+    curr = @head
+    index = 0
+    until curr == nil do
+      return index if curr.value == val
+      curr = curr.next_node
+      index += 1
+    end
+    puts "Error: Value not found!"
+    return nil
+  end
 end
 
 ll = LinkedList.new()
@@ -95,4 +107,4 @@ ll.append('a')
 ll.append(2)
 ll.append(3)
 ll.append(456)
-p ll.contains?('s')
+p ll.find(5)
