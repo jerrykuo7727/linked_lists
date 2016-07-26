@@ -48,7 +48,7 @@ class LinkedList
 
   def at(index)
     unless index < size
-      puts "Error: Index overflow!"
+      puts "Error: Index out of boundary!"
       return nil
     end
 
@@ -111,6 +111,14 @@ class LinkedList
     string << "nil"
     string
   end
+
+  def insert_at(index, val)
+    new_node = Node.new(val)
+    prev = at(index - 1)
+    curr = prev.next_node
+    prev.next_node = new_node
+    new_node.next_node = curr
+  end
 end
 
 ll = LinkedList.new()
@@ -118,5 +126,6 @@ ll.append('a')
 ll.append(2)
 ll.append(3)
 ll.append(456)
-ll.prepend('b')
+puts ll.to_s
+ll.insert_at(2, 4982)
 puts ll.to_s
