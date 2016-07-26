@@ -39,11 +39,19 @@ class LinkedList
   end
 
   def head
-    @head.value
+    @head
   end
 
   def tail
-    @tail.value
+    @tail
+  end
+
+  def at(index)
+    curr = @head
+    1.upto(index) do
+      curr = curr.next_node
+    end
+    curr
   end
 end
 
@@ -52,3 +60,4 @@ ll.append('a')
 ll.append(2)
 ll.append(3)
 ll.append(456)
+p ll.at(4)
